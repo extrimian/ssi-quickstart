@@ -106,6 +106,12 @@ const resolver = new DIDModenaResolver({ modenaURL: getModenaApiURL() });
 return await resolver.resolveDID(did);
 ```
 
+```
+getModenaApiURL = () => {
+    return "http://modena.extrimian.com";
+}
+```
+
 ## 4. Publicar Long DID
 ```
 import { CreateDIDResponse, Did } from "@extrimian/did-registry";
