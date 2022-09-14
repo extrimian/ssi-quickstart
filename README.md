@@ -20,16 +20,17 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 
 **Temario:**
 
- - Índice
- - Presentación
- - Que es un DID
- - Creación de un DID
- - Paquete Extrimian NPM
- - Workshop
+ - [Índice](stage1/README.md)
+ - [Presentación](stage1/presentation.pdf)
+ - [Que es un DID](stage1/what-is-did.md)
+ - [Creación de un DID](stage1/create-did.md)
+ - [Paquete Extrimian NPM](stage1/extrimian-packages.md)
+ - [Workshop](stage1/workshop/did)
  
 
 ## Stage 2
 
 **Temario:**
 
- - Workshop 
+ - [Workshop](stage2/README.md) 
+
