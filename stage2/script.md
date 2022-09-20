@@ -1,7 +1,7 @@
 # Script
 
 ## 1. Descargar node-typescript-template
-https://github.com/bdesiderio/node-typescript-template.git
+https://github.com/extrimian/node-typescript-template.git
 
 ## 2. Instalar paquetes de Extrimian
 **KMS**: 
