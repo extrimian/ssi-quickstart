@@ -1,4 +1,4 @@
-# Script
+# Workshop
 
 ## 1. Descargar node-typescript-template
 https://github.com/extrimian/node-typescript-template.git
