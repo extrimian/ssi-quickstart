@@ -9,7 +9,7 @@ const index = async () => {
     await signVCServiceOk();
     await signVCOk();
     await signInvalidPurpose();
-    await signInvalidPurposeVerify
+    await signInvalidPurposeVerify();
     await singInvalidBbsbls2();
     await signOkBbsbls2();
 }
