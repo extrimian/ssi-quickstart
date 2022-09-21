@@ -74,6 +74,76 @@ En el siguiente gráfico se observa un caso de uso desde el momento en que se ob
 
 ## Generar Credencial
 
+### DID Issuer
+
+> did:modena:matic:EiDxVyreUxU_nBYhtifpAXC7PcgMJ3DLkl_1Vdxy0Izg0w
+
+### DIDDocument
+El DID posee dos verification methods bbsbls2020 con el cual puede firmar sus credenciales.
+En la demo se van a realizar firmas y verificaciones utilizando ambas.
+```
+{
+    "@context": [
+        "https://www.w3.org/ns/did/v1",
+        "https://w3id.org/security/suites/jws-2020/v1",
+        {
+            "@vocab": "https://www.w3.org/ns/did#"
+        }
+    ],
+    "id": "did:modena:matic:EiDxVyreUxU_nBYhtifpAXC7PcgMJ3DLkl_1Vdxy0Izg0w",
+    "verificationMethod": [
+        {
+            "id": "#didComm",
+            "controller": "did:modena:matic:EiDxVyreUxU_nBYhtifpAXC7PcgMJ3DLkl_1Vdxy0Izg0w",
+            "type": "X25519KeyAgreementKey2019",
+            "publicKeyJwk": {
+                "kty": "EC",
+                "crv": "secp256k1",
+                "x": "yiXATfRlLw4aO1tRtFFisA",
+                "y": "mbkXS0oOSxAIWQGq6WOm7g"
+            }
+        },
+        {
+            "id": "#bbsbls",
+            "controller": "did:modena:matic:EiDxVyreUxU_nBYhtifpAXC7PcgMJ3DLkl_1Vdxy0Izg0w",
+            "type": "Bls12381G1Key2020",
+            "publicKeyJwk": {
+                "kty": "EC",
+                "crv": "secp256k1",
+                "x": "iCBRlnrLRp1KxQtm8MI3xqX5zTh10MeO3-fS4G1t9imtnqeqlBE-qw32lFrLGxHx",
+                "y": "DEN6O8CxB9lJYrAwPh7a7ZO9kyoEuKQeSsVM-nK3RAYUbYuYSym4bf60P5k6hKU8"
+            }
+        },
+        {
+            "id": "#bbsbls-2",
+            "controller": "did:modena:matic:EiDxVyreUxU_nBYhtifpAXC7PcgMJ3DLkl_1Vdxy0Izg0w",
+            "type": "Bls12381G1Key2020",
+            "publicKeyJwk": {
+                "kty": "EC",
+                "crv": "secp256k1",
+                "x": "rcKKxoojkcK-L7QT3N_6qCTexa_LCUS4Jaz0bou7B_BwFpzuEardCvKCB3cdF4Nt",
+                "y": "Fzovy9zuKK__T5qqeFRsSp6aFY-uRGf2EFYcvjZLQONCnQDYyj8HcN1b4sSj1z7u"
+            }
+        }
+    ],
+    "keyAgreement": [
+        "#didComm"
+    ],
+    "assertionMethod": [
+        "#bbsbls",
+        "#bbsbls-2"
+    ],
+    "service": [
+        {
+            "id": "#vc-to-sign",
+            "type": "vc-download",
+            "serviceEndpoint": "https://run.mocky.io/v3/57acba02-3d56-4719-a560-a4bc32a7c8e8"
+        }
+    ]
+}
+```
+
+
 Credencial de ejemplo: Vaccine
 
 [https://w3c-ccg.github.io/vaccination-vocab/](https://w3c-ccg.github.io/vaccination-vocab/)
@@ -181,5 +251,26 @@ credential,
 "did:modena:matic:EiBir9q1nNlEmNFs1APYAsWbdVMnDVp0Wy1MWYLQPcSFuw#bbsbls", new KeyAgreementPurpose());
 ```
 
-## 
+## Firmar utilizando el purpose AssertionMethod pero verificando otro purpose
+```
+const result = await service.verify(vc,
+new KeyAgreementPurpose()); // KeyAgreementPurpose is not ok to verify
+```
 
+## Firmar utilizando el segundo par de claves bbs pero indicando el VerificationMethod del primer par en la firma
+```
+const vc = await kms.signVC(Suite.Bbsbls2020,
+        bbsbls2020[0],
+        credential,
+        "did:modena:matic:EiDxVyreUxU_nBYhtifpAXC7PcgMJ3DLkl_1Vdxy0Izg0w",
+        "did:modena:matic:EiDxVyreUxU_nBYhtifpAXC7PcgMJ3DLkl_1Vdxy0Izg0w#bbsbls-2", new AssertionMethodPurpuse());
+```
+
+## Firmar utilizando el segundo par de claves bbs indicando bien el VerificationMethod
+```
+const vc = await kms.signVC(Suite.Bbsbls2020,
+        bbsbls2020[0],
+        credential,
+        "did:modena:matic:EiDxVyreUxU_nBYhtifpAXC7PcgMJ3DLkl_1Vdxy0Izg0w",
+        "did:modena:matic:EiDxVyreUxU_nBYhtifpAXC7PcgMJ3DLkl_1Vdxy0Izg0w#bbsbls-2", new AssertionMethodPurpuse());
+```

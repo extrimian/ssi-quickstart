@@ -10,13 +10,19 @@ export class SecureStorage implements KMSStorage {
         //     suite: 'bbsbls2020'
         // }];
 
-        this.map.set("0x83b9f43105afce713fbb59c0ed4755be00b24429a2a9ec6e4d30fe79eadcf79bc668e2dae5d963bea9939564673bbf860eee6123bb69f3cd13544cfdbdeef12c7fd75ce3fa2557464114fe3e68d09d4c3e8365e2cf6d9e93ee7270bcd33b7ef2",
+        this.map.set("0x882051967acb469d4ac50b66f0c237c6a5f9cd3875d0c78edfe7d2e06d6df629ad9ea7aa94113eab0df6945acb1b11f10c437a3bc0b107d94962b0303e1edaed93bd932a04b8a41e4ac54cfa72b74406146d8b984b29b86dfeb43f993a84a53c",
             {
                 suite: 'bbsbls2020',
-                privateKey: '3xbS7xDTfKsxEHGZ8vDhhcci7TYe4ewzHFNTkVBSkMmC',
-                publicKey: 's51BcxxUF7wfmQKaM6azDRTrBLNpWEp5vfSKv24XBNMXYJGh3RiSqTaw3gEi4k4AX9Xfqkc3RFFoWiuFwREeY9fteJQQuzGH5BtT5NZ9UcBXRt5jjupjN4Tk1God64oUG6W'
+                privateKey: '12J5BMF6AUSY8sQUg1x7fhaWWT5AAiiTKhAvE53TM3Z9',
+                publicKey: 'otjvbJbRqhtkGtod122m97hw7MLz2HPZGS2z1ZC2TuYtQ98dKc8C6nTrXjSFeicymj1gyzYBAeuvaMuQLtEv1PHoN8zEJn1KqL9iMdLCAVUa6hpAXQnEUgn4AiDLJgG9XWb'
+            });
+        this.map.set("0xadc28ac68a2391c2be2fb413dcdffaa824dec5afcb0944b825acf46e8bbb07f070169cee11aadd0af28207771d17836d173a2fcbdcee28afff4f9aaa78546c4a9e9a158fae4467f610561cbe364b40e3429d00d8ca3f0770dd5be2c4a3d73eee",
+            {
+                suite: 'bbsbls2020',
+                privateKey: '6DwtqfiXTBvFgkYvg5tfGixr62ZghNEQFQTTAdpj326g',
+                publicKey: '22reLzFQ7mBZHvsUnf9d2onYq5N7BfbkKJmiKP9Xcc5jCssTM61rPHBvSZwZLnNucCjnBu4bVzrvbn1voS31Ktd74zrvKkvKhv5svsp76AX1AyNHV8AEkmQ5kZrwTtXKEAgm'
             }
-        )
+        );
 
 
         //UpdateKey ES256k
