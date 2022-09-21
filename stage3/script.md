@@ -74,11 +74,112 @@ En el siguiente gráfico se observa un caso de uso desde el momento en que se ob
 
 ## Generar Credencial
 
+Credencial de ejemplo: Vaccine
+
+[https://w3c-ccg.github.io/vaccination-vocab/](https://w3c-ccg.github.io/vaccination-vocab/)
+
+```
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/vaccination/v1"
+  ],
+  "type": [
+    "VerifiableCredential",
+    "VaccinationCertificate"
+  ],
+  "id": "urn:uvci:af5vshde843jf831j128fj",
+  "name": "COVID-19 Vaccination Certificate",
+  "description": "COVID-19 Vaccination Certificate",
+  "issuanceDate": "2019-12-03T12:19:52Z",
+  "expirationDate": "2029-12-03T12:19:52Z",
+  "issuer": "did:key:z6MkiY62766b1LJkExWMsM3QG4WtX7QpY823dxoYzr9qZvJ3",
+  "credentialSubject": {
+    "type": "VaccinationEvent",
+    "batchNumber": "1183738569",
+    "administeringCentre": "MoH",
+    "healthProfessional": "MoH",
+    "countryOfVaccination": "NZ",
+    "recipient": {
+      "type": "VaccineRecipient",
+      "givenName": "JOHN",
+      "familyName": "SMITH",
+      "gender": "Male",
+      "birthDate": "1958-07-17"
+    },
+    "vaccine": {
+      "type": "Vaccine",
+      "disease": "COVID-19",
+      "atcCode": "J07BX03",
+      "medicinalProductName": "COVID-19 Vaccine Moderna",
+      "marketingAuthorizationHolder": "Moderna Biotech"
+    }
+  }
+}
 ```
 
+### Crear credencial utilizando VerifiableCredentialService
+```
+const vcService = new VerifiableCredentialService();
+
+const credential = await vcService.createCredential({
+    context: ["https://w3id.org/vaccination/v1",
+        "https://w3id.org/security/v2",
+        "https://w3id.org/security/bbs/v1"],
+    vcInfo: {
+        "issuer": "did:modena:matic:EiBir9q1nNlEmNFs1APYAsWbdVMnDVp0Wy1MWYLQPcSFuw",
+        expirationDate: new Date("2026/05/05"),
+        id: "123456789",
+        types: ["VaccinationCertificate"],
+    },
+    data: {
+        type: "VaccinationEvent",
+        batchNumber: "1183738569",
+        administeringCentre: "MoH",
+        healthProfessional: "MoH",
+        countryOfVaccination: "NZ",
+        recipient: {
+            type: "VaccineRecipient",
+            givenName: "JOHN",
+            familyName: "SMITH",
+            gender: "Male",
+            birthDate: "1958-07-17"
+        },
+        vaccine: {
+            type: "Vaccine",
+            disease: "COVID-19",
+            atcCode: "J07BX03",
+            medicinalProductName: "COVID-19 Vaccine Moderna",
+            marketingAuthorizationHolder: "Moderna Biotech"
+        }
+    },
+    mappingRules: null,
+});
 ```
 
 ## Firmar Credencial
+```
+const vc = await kms.signVC(Suite.Bbsbls2020,
+bbsbls2020[0],
+credential,
+issuerDid,
+issuerDidMethod, 
+new AssertionMethodPurpuse());
+```
 
 ## Verificar VC
+```
+const result = await service.verify(vc, new AssertionMethodPurpuse());
+```
+
+## Firmar utilizando un purpose diferente a AssertionMethod
+```
+const vc = await kms.signVC(Suite.Bbsbls2020,
+bbsbls2020[0],
+credential,
+"did:modena:matic:EiBir9q1nNlEmNFs1APYAsWbdVMnDVp0Wy1MWYLQPcSFuw",
+"did:modena:matic:EiBir9q1nNlEmNFs1APYAsWbdVMnDVp0Wy1MWYLQPcSFuw#bbsbls", new KeyAgreementPurpose());
+```
+
+## 
 

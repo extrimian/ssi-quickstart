@@ -10,11 +10,11 @@ export class SecureStorage implements KMSStorage {
         //     suite: 'bbsbls2020'
         // }];
 
-        this.map.set("0x80d36a5a1c3fbe5c7ab7d2865360dfcbcd84de2026cffd62f53ef668df4061a423c4d180da355ea0187fd78e21e66cdc079a0d114ea620beba88d624eb8b7b28723d92293cd2aff076db8dcbfab20f1dce6f886274eaf427ca3ab41514a25d55",
+        this.map.set("0x83b9f43105afce713fbb59c0ed4755be00b24429a2a9ec6e4d30fe79eadcf79bc668e2dae5d963bea9939564673bbf860eee6123bb69f3cd13544cfdbdeef12c7fd75ce3fa2557464114fe3e68d09d4c3e8365e2cf6d9e93ee7270bcd33b7ef2",
             {
                 suite: 'bbsbls2020',
-                privateKey: '2rjK3nLMWK4qPiCU6hfLdTYGekzXD9v9jJydrPMfrrb8',
-                publicKey: 'mNt7s6Wn3DcEern2DNmiZjRYwhiR41dHf59mEGH438DjmmfGuvyQmiQKU5ATg44VUvqrx71ioDheqPnujhYb2MMv4Z1FxhbFb81UEQcmQMgxNTCweGDns45juJEkp23uMVE'
+                privateKey: '3xbS7xDTfKsxEHGZ8vDhhcci7TYe4ewzHFNTkVBSkMmC',
+                publicKey: 's51BcxxUF7wfmQKaM6azDRTrBLNpWEp5vfSKv24XBNMXYJGh3RiSqTaw3gEi4k4AX9Xfqkc3RFFoWiuFwREeY9fteJQQuzGH5BtT5NZ9UcBXRt5jjupjN4Tk1God64oUG6W'
             }
         )
 
