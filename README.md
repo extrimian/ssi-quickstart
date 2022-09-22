@@ -16,7 +16,7 @@ Un ejemplo de modelo de SSI es QuarkId ( [https://quarkid.org/](https://quarkid.
  
 Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Credenciales Verificables (Verified Credencials o VCs) son los pilares del modelo Self-sovereign identity (SSI). A través de una serie de pasos vamos a recorrer materiales y workshops que una empresa puede utilizar para integrarse a un modelo de SSI de forma simple sin tener que preocuparse de la problemática tecnológica de fondo.
 
-## Stage 1
+## [Stage 1](stage1/README.md) 
 
 **Temario:**
 
@@ -28,14 +28,14 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
  - [Workshop](stage1/workshop/did)
  
 
-## Stage 2
+## [Stage 2]](stage2/README.md) 
 
 **Temario:**
 
  - [Workshop](stage2/README.md) 
 
 
-## Stage 3 - Credenciales Verificables
+## [Stage 3](stage2/README.md) 
 
 **Temario:**
 
@@ -46,4 +46,4 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 - Crear credencial utilizando VerifiableCredentialService
 - Firmar Credencial
 - Verificar VC
-- [Workshop](stage3/README.md) 
+- [Workshop](stage3/vc-example) 
