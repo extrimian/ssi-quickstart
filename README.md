@@ -28,7 +28,7 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
  - [Workshop](stage1/workshop/did)
  
 
-## [Stage 2]](stage2/README.md) 
+## [Stage 2](stage2/README.md) 
 
 **Temario:**
 
