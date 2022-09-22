@@ -1,6 +1,6 @@
 # SSI Framework Onboarding
 La **Identidad AutoSoberana** (Self-Sovereign Identity en inglés) es un nuevo paradigma para la generación de confianza en internet que trasciende las interacciones digitales y puede implementarse en el mundo físico. 
-Un ejemplo de modelo de SSI es TangoID ( https://tangoid.org/ ) que está trayendo el mundo de SSI a la realidad en Latinoamérica.
+Un ejemplo de modelo de SSI es QuarkId ( https://quarkid.org/ ) que está trayendo el mundo de SSI a la realidad en Latinoamérica.
 
 
 Los Identificadores Descentralizados (Decentralised IDs o DIDs) y las Credenciales Verificables (Verified Credencials o VCs) son los pilares del modelo Self-sovereign identity (SSI). A través de una serie de pasos vamos a recorrer materiales y workshops que una empresa puede utilizar para integrarse a un modelo de SSI de forma simple sin tener que preocuparse de la problemática tecnológica de fondo.
