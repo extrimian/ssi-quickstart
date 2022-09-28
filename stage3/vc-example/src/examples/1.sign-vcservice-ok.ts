@@ -51,11 +51,13 @@ export const signVCServiceOk = async () => {
     const bbsbls2020 = await kms.getPublicKeysBySuiteType(Suite.Bbsbls2020);
 
     const vc = await kms.signVC(Suite.Bbsbls2020,
-        bbsbls2020[1],
+        bbsbls2020[0],
         credential,
         "did:modena:matic:EiDxVyreUxU_nBYhtifpAXC7PcgMJ3DLkl_1Vdxy0Izg0w",
-        "did:modena:matic:EiDxVyreUxU_nBYhtifpAXC7PcgMJ3DLkl_1Vdxy0Izg0w#bbsbls-2", new AssertionMethodPurpuse());
+        "did:modena:matic:EiDxVyreUxU_nBYhtifpAXC7PcgMJ3DLkl_1Vdxy0Izg0w#bbsbls", new AssertionMethodPurpuse());
 
+
+    //Verifier
     const service = new VCVerifierService({
         didDocumentResolver: async (did: string) => {
             const resolver = new DIDModenaResolver({
@@ -66,6 +68,7 @@ export const signVCServiceOk = async () => {
             return didDocument;
         }
     });
+
 
     const result = await service.verify(vc, new AssertionMethodPurpuse());
 
