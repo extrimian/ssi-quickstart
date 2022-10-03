@@ -31,8 +31,13 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 ## [Stage 2](stage2/README.md) 
 
 **Temario:**
-
- - [Workshop](stage2/README.md) 
+- Descargar node-typescript-template
+- Instalar paquetes de Extrimian
+- Crear LONG DID
+- Resolver Long DID
+- Publicar Long DID
+- Resolver DID Publicado
+- [Workshop](stage2/README.md) 
 
 
 ## [Stage 3](stage3/README.md) 
