@@ -35,7 +35,7 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
  - [Workshop](stage2/README.md) 
 
 
-## [Stage 3](stage2/README.md) 
+## [Stage 3](stage3/README.md) 
 
 **Temario:**
 
@@ -47,3 +47,16 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 - Firmar Credencial
 - Verificar VC
 - [Workshop](stage3/vc-example) 
+
+## [Stage 4](stage4/README.md) 
+
+**Temario:**
+
+- Interacción con el mundo exterior - DWN - DID Document - VC - WACI
+- Service endpoints
+- DWN Client NPM
+- Inicializar DWN Client
+- DWN Types
+- Configurar el DWN para el Pulleo de mensajes
+- DWN Send Message
+- [Workshop](stage4/examples) 
