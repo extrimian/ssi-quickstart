@@ -7,10 +7,15 @@ import { AssertionMethodPurpuse } from '@extrimian/did-resolver/dist/models/purp
 import { CreateCredentialParams } from './message.service';
 import { KMSClient } from '@extrimian/kms-client';
 import { Inject } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Credential, CredentialDocument } from './schemas/credential.schema';
+import { Model } from 'mongoose';
 
 export class CredentialService {
   constructor(
     @Inject('DID') private did: string,
+    @InjectModel(Credential.name)
+    private credentialModel: Model<CredentialDocument>,
     private vcService: VerifiableCredentialService,
     private kmsClient: KMSClient,
   ) {}
@@ -33,7 +38,7 @@ export class CredentialService {
       Suite.Bbsbls2020,
     );
 
-    return this.kmsClient.signVC(
+    const signedCredential = await this.kmsClient.signVC(
       Suite.Bbsbls2020,
       keys[0],
       credentialToSign,
@@ -41,5 +46,8 @@ export class CredentialService {
       `${this.did}#vc-bbs`,
       new AssertionMethodPurpuse(),
     );
+
+    await new this.credentialModel(signedCredential).save();
+    return signedCredential;
   }
 }

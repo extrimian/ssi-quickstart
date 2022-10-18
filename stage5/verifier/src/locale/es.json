@@ -1,0 +1,11 @@
+{
+  "remember": "Recuerda que tu tarjeta de Extrimian es unica y personal, no la compartas con nadie.",
+  "verify": "Verificar",
+  "verifyCredential": "Verifica tus Credenciales",
+  "step1": "Utiliza nuestra aplicación para compartir tus credenciales escaneando este código QR.",
+  "step2": "Selecciona la credencial que quieres compartir.",
+  "step3": "Confirma la selección.",
+  "yourCredential": "Tu Credencial Verificable",
+  "noAccess": "No tenemos acceso a tu credencial aún",
+  "language": "Idioma"
+}

@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CreateOobInvitationDto } from './dto/create-oob-invitation.dto';
 import { GoalCode } from '@extrimian/waci';
 import { InjectModel } from '@nestjs/mongoose';
@@ -14,6 +14,7 @@ import {
   CredentialContextDocument,
 } from './schemas/credential-context.schema';
 import { GetVcDataDto } from './dto/get-vc-data.dto';
+import { config } from './config';
 
 @Injectable()
 export class AppService {
@@ -22,43 +23,10 @@ export class AppService {
     private userInvitationModel: Model<UserInvitationDocument>,
     @InjectModel(CredentialContext.name)
     private credentialContextModel: Model<CredentialContextDocument>,
-    @Inject('CONFIG') private config,
   ) {}
 
   async onModuleInit(): Promise<void> {
     const contexts: CredentialContext[] = [
-      {
-        _id: 'citizen-card',
-        name: 'Permanent Resident Card',
-        vcInfo: {
-          issuer: 'Gibraltar',
-          types: ['VerifiableCredential', 'PermanentResidentCard'],
-        },
-        contexts: [
-          'https://json-ld.org/contexts/person.jsonld',
-          'https://w3id.org/citizenship/v1',
-          'https://w3id.org/security/v2',
-          'https://w3id.org/security/bbs/v1',
-          'https://www.w3.org/2018/credentials/v1',
-        ],
-        mappingRulesDescriptor: {
-          type: 'type',
-          id: 'Preferred ID Number',
-          givenName: 'First Name',
-          familyName: 'Surname',
-          birthDate: 'Date of Birth',
-          email: 'Email',
-          telephone: 'Mobile',
-          'nationality:name': 'Nationality',
-        },
-        subjectMetadata: {
-          type: ['PermanentResident', 'Person'],
-        },
-        dataProvider: {
-          url: 'pepe',
-          urlKey: ':citizenId',
-        },
-      },
       {
         _id: 'extrimian-card',
         name: 'Extrimian Card',
@@ -85,7 +53,10 @@ export class AppService {
         subjectMetadata: {
           type: ['PermanentResident', 'Person'],
         },
-        dataProvider: { url: 'pepe2', urlKey: ':userId' },
+        dataProvider: {
+          url: 'http://host.docker.internal:3600/users/:userId',
+          urlKey: ':userId',
+        },
       },
     ];
 
@@ -145,14 +116,14 @@ export class AppService {
       credentialContextIds: dto.credentialContextIds,
     }).save();
 
-    return `${this.config.deeplinkSchema}?_oob=${encodedInvitation}`;
+    return `${config.DEEPLINK_SCHEMA}?_oob=${encodedInvitation}`;
   }
 
   private async getEncodedInvitationMessage(
     goalCode: GoalCode,
   ): Promise<{ id: string; encodedInvitation: string }> {
     const { data: invitationMessage } = await axios.post(
-      this.config.endpointUrl,
+      config.WACI_INVITATION_ENDPOINT_URL,
       {
         goalCode,
       },

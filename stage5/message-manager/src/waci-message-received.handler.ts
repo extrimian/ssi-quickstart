@@ -9,40 +9,44 @@ import {
   SendMessageParams,
   ThreadMethod,
 } from '@extrimian/dwn-client';
-import { DIDModenaResolver } from '@extrimian/did-resolver';
 import { Injectable, Logger } from '@nestjs/common';
+import { DidResolverService } from './did-resolver.service';
 
 @Injectable()
 export class WACIMessageReceivedHandler {
   constructor(
     private waciInterpreter: WACIInterpreter,
     private dwnClient: DWNClient,
-    private didResolver: DIDModenaResolver,
+    private didResolver: DidResolverService,
   ) {}
 
   async handle(message: DWNMessage): Promise<void> {
     Logger.log('WACI message received');
-    const {
-      data: messageData,
-      descriptor: { root: rootMessageId },
-    } = message;
-    if (await this.waciInterpreter.isWACIMessage(messageData)) {
-      const dwnMessageThread = rootMessageId
-        ? await this.dwnClient.getMessages({
-            root: rootMessageId,
-          })
-        : [message];
+    try {
+      const {
+        data: messageData,
+        descriptor: { root: rootMessageId },
+      } = message;
+      if (await this.waciInterpreter.isWACIMessage(messageData)) {
+        const dwnMessageThread = rootMessageId
+          ? await this.dwnClient.getMessages({
+              root: rootMessageId,
+            })
+          : [message];
 
-      const waciMessageThread = dwnMessageThread.map(
-        (dwnMessage) => dwnMessage.data,
-      );
-      const responseMessage = await this.waciInterpreter.processMessage(
-        waciMessageThread,
-      );
-      if (responseMessage) {
-        await this.sendResponse(responseMessage, message);
-        Logger.log('WACI message sent');
+        const waciMessageThread = dwnMessageThread.map(
+          (dwnMessage) => dwnMessage.data,
+        );
+        const responseMessage = await this.waciInterpreter.processMessage(
+          waciMessageThread,
+        );
+        if (responseMessage) {
+          await this.sendResponse(responseMessage, message);
+          Logger.log('WACI message sent');
+        }
       }
+    } catch (error) {
+      Logger.error(error);
     }
   }
 
@@ -81,8 +85,7 @@ export class WACIMessageReceivedHandler {
   }
 
   private async getTargetDwnUrl(did: string): Promise<string> {
-    const didIdentifier = did.slice(did.lastIndexOf(':') + 1);
-    const didDocument = await this.didResolver.resolveDID(didIdentifier);
+    const didDocument = await this.didResolver.resolve(did);
     try {
       const dwn = didDocument.service.find(
         (service) => service.type === 'DecentralizedWebNode',

@@ -41,7 +41,7 @@ export class MessageService {
   ) {
     dwnClient.addSubscriber(async (messages) => {
       Logger.log(`Found ${messages.length} messages`);
-      messages.forEach(handler.handle);
+      messages.forEach((message) => handler.handle(message));
     });
   }
   async getWaciInvitationMessage(

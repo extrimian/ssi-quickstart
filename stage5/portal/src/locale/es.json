@@ -1,0 +1,19 @@
+{
+  "installation": "Instalación",
+  "firstSteps": "y primeros pasos",
+  "step1": "Descarga nuestro agente móvil usando Testflight (IOS) o con el Apk (Android) solicitandolo a nuestro equipo.",
+  "step2": "Establece un PIN de seguridad. En caso de contar con métodos de autenticación biométrica, tranquilo se añadiran solos al agente.",
+  "step3": "Crea tu DID (Identificador Decentralizado) para todos los procesos de identidad.",
+  "step4": "Genera una Credencial Verificable con el formulario de la derecha.",
+  "generate": "Generar",
+  "generateYour": "Genera tu",
+  "credential": "Credencial Verifiable",
+  "name": "Nombre",
+  "lastname": "Apellido",
+  "phone": "Teléfono",
+  "email": "Email",
+  "birthDate": "Fecha de nacimiento",
+  "reset": "Reiniciar",
+  "invitation": "Enlace de invitación",
+  "language": "Idioma"
+}

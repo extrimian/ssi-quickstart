@@ -2,4 +2,4 @@ FROM nikolaik/python-nodejs:python3.10-nodejs14
 WORKDIR /app
 COPY . .
 RUN yarn && yarn build
-ENTRYPOINT ["yarn", "start"]
+ENTRYPOINT ["yarn", "start:prod"]

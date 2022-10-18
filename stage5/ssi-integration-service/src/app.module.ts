@@ -11,6 +11,7 @@ import {
   CredentialContextSchema,
 } from './schemas/credential-context.schema';
 import { config } from './config';
+
 @Module({
   imports: [
     MongooseModule.forRoot(config.MONGO_URI),
@@ -20,12 +21,6 @@ import { config } from './config';
     ]),
   ],
   controllers: [AppController],
-  providers: [
-    AppService,
-    {
-      provide: 'CONFIG',
-      useValue: config,
-    },
-  ],
+  providers: [AppService],
 })
 export class AppModule {}

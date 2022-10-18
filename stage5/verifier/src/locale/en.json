@@ -1,0 +1,11 @@
+{
+  "remember": "Remeber, your extrimian card is personal, don't share it.",
+  "verify": "Verify",
+  "verifyCredential": "Verify your credentials",
+  "step1": "Scan this QR code using our app to present your credentials.",
+  "step2": "Choose the credential that you want to present.",
+  "step3": "Confirm.",
+  "yourCredential": "Your Verifiable Credential",
+  "noAccess": "We don't have access to your credential yet",
+  "language": "Language"
+}

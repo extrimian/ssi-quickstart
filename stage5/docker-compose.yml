@@ -1,0 +1,120 @@
+version: '3.5'
+services:
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - '9999:8080'
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    expose:
+      - 27017
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+
+  ssi-integration:
+    container_name: ssi-integration
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    build:
+      context: ./ssi-integration-service
+    expose:
+      - 3400
+    ports:
+      - '3400:3400'
+    environment:
+      PORT: 3400
+      DEEPLINK_SCHEMA: extrimian://
+      MONGO_URI: mongodb://root:root@mongo/ssi-integration?authSource=admin
+      WACI_INVITATION_ENDPOINT_URL: http://host.docker.internal:3500/message
+
+  message-manager:
+    container_name: message-manager
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    build:
+      context: ./message-manager
+    expose:
+      - 3500
+    ports:
+      - '3500:3500'
+    environment:
+      PORT: 3500
+      DWN_URL: https://modena-dwn.extrimian.com
+      DWN_SCHEDULER_CRON_EXPRESSION: "*/10 * * * * *"
+      RESOLVER_URL: http://modena.extrimian.com
+      CREATE_DID_API_URL: http://modena.extrimian.com/create
+      SSI_INTEGRATION_API_URL: http://host.docker.internal:3400/vc-data
+      VC_STATUS_API_URL: http://localhost:3800/credentials/verify
+      MONGO_URI: mongodb://root:root@mongo/credentials?authSource=admin
+      
+  vc-data-ssi-api:
+    container_name: vc-data-ssi-api
+    build:
+      context: ./vc-data-ssi-api
+    expose:
+      - 3600
+    ports:
+      - '3600:3600'
+    environment:
+      PORT: 3600
+
+  portal:
+    container_name: portal
+    build:
+      context: ./portal
+    ports:
+      - '3000:3000'
+    environment:
+      REACT_APP_SSI_INTEGRATION_SERVICE_URL: http://localhost:3400
+      REACT_APP_SSI_API_URL: http://localhost:3600
+
+  revoke-api:
+    container_name: revoke-api
+    build:
+      context: ./revoke-api
+    expose:
+      - 3800
+    ports:
+      - '3800:3800'
+    environment:
+      PORT: 3800
+      MONGO_URI: mongodb://root:root@mongo/credentials?authSource=admin
+      API_URL: http://localhost:3800
+
+  revoke-front:
+    container_name: revoke-front
+    build:
+      context: ./revoke-front
+    ports:
+      - '3100:3000'
+    environment:
+      REACT_APP_API_URL: http://localhost:3800
+
+  verifier:
+    container_name: verifier
+    build:
+      context: ./verifier
+    ports:
+      - '3200:3000'
+    environment:
+      GENERATE_SOURCEMAP: false
+      SKIP_PREFLIGHT_CHECK: true
+      REACT_APP_DID_STORAGE_KEY: verifier-did
+      REACT_APP_DWN_URL: https://modena-dwn.extrimian.com
+      REACT_APP_RESOLVER_URL: http://modena.extrimian.com/resolve/
+      REACT_APP_CREATE_URL: http://modena.extrimian.com/create/
+
+
+
+
+
+
+  

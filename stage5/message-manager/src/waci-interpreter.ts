@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+import * as crypto from 'crypto';
 import { Actor, WACIInterpreter } from '@extrimian/waci';
 import axios from 'axios';
 import { config } from './config';
@@ -16,11 +16,12 @@ export const waciInterpreterProvider: Provider = {
       {
         getCredentialManifest: async (waciInvitationId: string) => {
           const { data: vcData } = await axios.get<VcDataDto[]>(
-            `${config.VC_DATA_API_URL}/${waciInvitationId}`,
+            `${config.SSI_INTEGRATION_API_URL}/${waciInvitationId}`,
           );
           const uuid = crypto.randomUUID();
           const expirationDate = new Date();
           expirationDate.setFullYear(2023);
+
           const vc1 = await credentialService.createCredential({
             ...vcData[0],
             vcInfo: {
@@ -56,7 +57,7 @@ export const waciInterpreterProvider: Provider = {
                       },
                       output_descriptors: [
                         {
-                          id: 'citizen_card_output',
+                          id: 'vc_output',
                           schema: '',
                           display: {
                             title: {
@@ -68,7 +69,7 @@ export const waciInterpreterProvider: Provider = {
                               fallback: 'Verifiable Credential',
                             },
                             description: {
-                              text: `Card which acknowledges holder's Random Country citizenship.`,
+                              text: `Extrimian card.`,
                             },
                           },
                         },
@@ -93,7 +94,7 @@ export const waciInterpreterProvider: Provider = {
                       manifest_id: manifestId,
                       descriptor_map: [
                         {
-                          id: 'citizen_card_output',
+                          id: 'vc_output',
                           format: 'ldp_vc',
                           path: '$.verifiableCredential[0]',
                         },

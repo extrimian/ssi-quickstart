@@ -14,19 +14,19 @@ export class CredentialContext {
   @Prop([String])
   contexts: string[];
 
-  @Prop({ type: mongoose.Schema.Types.Mixed })
+  @Prop({ type: Object })
   vcInfo: {
     issuer: string;
     types: string[];
   };
 
-  @Prop({ type: mongoose.Schema.Types.Mixed })
+  @Prop({ type: Object })
   mappingRulesDescriptor: Record<string, string>;
 
-  @Prop({ type: mongoose.Schema.Types.Mixed })
+  @Prop({ type: Object })
   subjectMetadata: Record<string, any>;
 
-  @Prop({ type: mongoose.Schema.Types.Mixed })
+  @Prop({ type: Object })
   dataProvider: {
     url: string;
     urlKey: string;

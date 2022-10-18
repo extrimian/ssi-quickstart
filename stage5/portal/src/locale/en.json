@@ -1,0 +1,19 @@
+{
+  "installation": "Installation",
+  "firstSteps": "and first steps",
+  "step1": "Download our mobile agent throw Testflight (IOS) or with the APK (Android) asking for it to our team",
+  "step2": "Create a security PIN. If you count with biometric authentications they will be added automatically.",
+  "step3": "Create your DID (Descentralized ID) to be able to interact with all the identity process.",
+  "step4": "Generate a Verifiable Credential with the right side form.",
+  "generate": "Generate",
+  "generateYour": "Generate your",
+  "credential": "Verifiable Credential",
+  "name": "Name",
+  "lastname": "Last Name",
+  "phone": "Phone",
+  "email": "Email",
+  "birthDate": "Birth date",
+  "reset": "Reset",
+  "invitation": "Invitation link",
+  "language": "Language"
+}

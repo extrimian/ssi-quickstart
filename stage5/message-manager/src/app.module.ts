@@ -14,12 +14,24 @@ import { DIDModenaResolver } from '@extrimian/did-resolver';
 import { DidResolverService } from './did-resolver.service';
 import { WACIMessageReceivedHandler } from './waci-message-received.handler';
 import { CredentialService } from './credential.service';
+import { WACIInterpreter } from '@extrimian/waci';
+import { MongooseModule } from '@nestjs/mongoose';
+import { Credential, CredentialSchema } from './schemas/credential.schema';
 
 export class AppModule {
   static register(did: string): DynamicModule {
     return {
       module: AppModule,
-      imports: [ScheduleModule.forRoot()],
+      imports: [
+        ScheduleModule.forRoot(),
+        MongooseModule.forRoot(config.MONGO_URI, { retryAttempts: 0 }),
+        MongooseModule.forFeature([
+          {
+            name: Credential.name,
+            schema: CredentialSchema,
+          },
+        ]),
+      ],
       controllers: [AppController],
       providers: [
         { provide: 'DID', useValue: did },
@@ -55,7 +67,20 @@ export class AppModule {
         CredentialService,
         DidResolverService,
         waciInterpreterProvider,
-        WACIMessageReceivedHandler,
+        {
+          provide: WACIMessageReceivedHandler,
+          useFactory: async (
+            waciInterpreter: WACIInterpreter,
+            dwnClient: DWNClient,
+            didResolver: DidResolverService,
+          ) =>
+            new WACIMessageReceivedHandler(
+              waciInterpreter,
+              dwnClient,
+              didResolver,
+            ),
+          inject: [WACIInterpreter, DWNClient, DidResolverService],
+        },
       ],
     };
   }
