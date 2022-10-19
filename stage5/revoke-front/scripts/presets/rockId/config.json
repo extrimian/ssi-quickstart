@@ -1,0 +1,13 @@
+{
+  "name": "Rock ID",
+  "logoUrl": "https://i.ibb.co/wJdvZfY/logo.png",
+  "logoUrl_small": "https://i.ibb.co/8Dr5nft/smalllogo.png",
+  "style": {
+    "primaryColor": "#28033D",
+    "secondaryColor": "#15CEF3",
+    "tertiaryColor": "#AC15ED"
+  },
+  "features": {
+    "bottomBarColors": ["#ef6824", "#ac15ed", "#15cef3"]
+  }
+}

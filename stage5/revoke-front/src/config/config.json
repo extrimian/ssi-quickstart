@@ -1,0 +1,13 @@
+{
+  "name": "Extrimian App",
+  "scheme": "extrimian",
+  "identifier": "RevokeApp",
+  "logoUrl": "https://i.ibb.co/J3p4bLw/extrimian-logo.png",
+  "logoUrl_small": "https://i.ibb.co/J3p4bLw/extrimian-logo.png",
+  "style": {
+    "primaryColor": "#001a36",
+    "secondaryColor": "#97CC00",
+    "tertiaryColor": "#AC15ED"
+  },
+  "features": { "bottomBarColors": ["#97CC00", "#ccff33", "#007200"] }
+}
