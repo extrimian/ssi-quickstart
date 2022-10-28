@@ -24,3 +24,6 @@ export const index = async () => {
 };
 
 index();
+
+// DID con bbs y didcomm
+//did:modena:matic:EiCyn4cqgkM8776g85kPC9eQ9N6EaRIJMARVUUvBttSVUA

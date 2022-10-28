@@ -1,4 +1,10 @@
 # SSI Framework Onboarding
+Con la **Identidad Auto-Soberana** (en Inglés Self-Sovereign Identity (SSI)), los titulares de la identidad individual crean y controlan completamente sus credenciales, sin verse obligados a solicitar autorización de una autoridad intermediaria o centralizada y les da control sobre cómo se comparten y usan sus datos personales.
+
+El usuario tiene un medio para generar y controlar identificadores únicos, así como alguna facilidad para almacenar datos de identidad.
+
+En el paradigma de la identidad centralizada, una entidad externa proporciona la identidad de una persona. En el paradigma descentralizado de identidad, el usuario está en el centro del marco y no hay necesidad de que terceros emitan y administren una identidad.
+
 La **Identidad AutoSoberana** (Self-Sovereign Identity en inglés) es un nuevo paradigma para la generación de confianza en internet que trasciende las interacciones digitales y puede implementarse en el mundo físico. 
 Un ejemplo de modelo de SSI es QuarkId ( https://quarkid.org/ ) que está trayendo el mundo de SSI a la realidad en Latinoamérica.
 

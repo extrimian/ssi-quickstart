@@ -1,6 +1,6 @@
 import { KMSClient } from "@extrimian/kms-client";
 import { Did } from "@extrimian/did-registry";
-import { AssertionMethodPurpuse, KeyAgreementPurpose } from "@extrimian/did-core";
+import { AssertionMethodPurpose, KeyAgreementPurpose } from "@extrimian/did-core";
 import { LANG, Suite } from "@extrimian/kms-core";
 import { SecureStorage } from "../models/secure-storage";
 
@@ -26,7 +26,7 @@ export const createLongDID = async () => {
             id: "bbsbls",
             type: "Bls12381G1Key2020",
             publicKeyJwk: bbsbls.publicKeyJWK,
-            purpose: [new AssertionMethodPurpuse()]
+            purpose: [new AssertionMethodPurpose()]
         },
         {
             id: "didComm",
