@@ -70,6 +70,6 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 
 **Temario:**
 
-- Demo donde se integran todos los comoponentes minimos necesarios para implementar SSI.
+- Demo donde se integran todos los componentes minimos necesarios para implementar SSI.
 
 
