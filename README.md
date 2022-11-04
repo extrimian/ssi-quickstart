@@ -65,3 +65,11 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 - Configurar el DWN para el Pulleo de mensajes
 - DWN Send Message
 - [Workshop](stage4/examples) 
+
+## [Stage 5](stage5/README.md)
+
+**Temario:**
+
+- Demo donde se integran todos los comoponentes minimos necesarios para implementar SSI.
+
+
