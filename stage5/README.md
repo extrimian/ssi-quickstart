@@ -2,8 +2,13 @@ Demo Integracion SSI
 ========================
 
 La demo Integracion SSI es una aplicacion de referencia que implementa los componenes minimo necesarios para cerrar un circuito de implemntacion de identidad auto soberana.
+
 Implementa:
 
+- Obtención de VC (issuer)
+- Revocación de VC: frontend / backend
+- Verificador de VC (verifier)
+- Componentes de orquestación 
 
 Pre-requisitos
 ------------

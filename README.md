@@ -71,5 +71,7 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 **Temario:**
 
 - Demo donde se integran todos los componentes minimos necesarios para implementar SSI.
-
-
+- Obtención de VC (issuer)
+- Revocación de VC: frontend / backend
+- Verificador de VC (verifier)
+- Componentes de orquestación 
