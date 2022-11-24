@@ -26,6 +26,7 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
  - [Creación de un DID](stage1/create-did.md)
  - [Paquete Extrimian NPM](stage1/extrimian-packages.md)
  - [Workshop](stage1/workshop/did)
+ - Ver [video](https://www.youtube.com/watch?v=WFlqVpqUtVo)  
  
 
 ## [Stage 2](stage2/README.md) 
@@ -38,6 +39,7 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 - Publicar Long DID
 - Resolver DID Publicado
 - [Workshop](stage2/README.md) 
+- Ver [video](https://www.youtube.com/watch?v=MXvlFa-IuK4) 
 
 
 ## [Stage 3](stage3/README.md) 
@@ -52,6 +54,7 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 - Firmar Credencial
 - Verificar VC
 - [Workshop](stage3/vc-example) 
+- Ver [Video](https://www.youtube.com/watch?v=RkE074tVj_k)
 
 ## [Stage 4](stage4/README.md) 
 
@@ -65,6 +68,7 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 - Configurar el DWN para el Pulleo de mensajes
 - DWN Send Message
 - [Workshop](stage4/examples) 
+- Ver [Video](https://www.youtube.com/watch?v=PbY2zhTuO9g) 
 
 ## [Stage 5](stage5/README.md)
 
@@ -75,3 +79,5 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 - Revocación de VC: frontend / backend
 - Verificador de VC (verifier)
 - Componentes de orquestación 
+- Ver [video](https://www.youtube.com/watch?v=ZA-neuIrThg)
+
