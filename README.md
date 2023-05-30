@@ -1,22 +1,96 @@
-# Extrimian SSI quickstart 
+# Extrimian SSI Quickstart
 
-Extrimian SSI Framework agrupa estándares y especificaciones relacionadas con la identidad soberana propia, DID y credenciales verificables.
+En este documento profundizaremos sobre SSI y las tecnologías sobre la cual se construye. Vamos a ver más de cerca cómo funcionan los distintos aspectos del sistema y se podrán hacer workshops técnicos guiados para ahondar más en el lado técnico del problema. Se utilizarán algunas de las herramientas desarrolladas por Extrimian, que permiten implementar un sistema SSI personalizado de manera simple.
 
-El paquete NPM proporciona las funcionalidades necesarias para implementaciones modulares de aplicaciones de identidad descentralizadas y brinda interoperabilidad con otros componentes de una manera fácil y flexible.
+## Introducción
 
-Algunas de las soluciones que brinda son: cliente DWN, interpretación de mensajes WACI-DIDComm, verificación de credenciales verificables.
+La **Identidad Auto Soberana** (Self-Sovereign Identity o SSI en inglés) es un nuevo paradigma para la generación de confianza a través de internet que busca darle la capacidad de tener control total y exclusivo sobre su propia identidad en línea a las personas. En lugar de depender de terceros, como gobiernos o corporaciones, para gestionar y autenticar su identidad digital la SSI propone que los individuos sean los únicos propietarios y administradores de su información personal.
+
+La idea central de la SSI es que cada individuo tenga la capacidad de poseer y controlar sus datos personales, decidiendo cuándo y con quién los comparte. Esto se logra mediante el uso de tres tecnologías fundamentales:
+* Registros distribuidos, como blockchain
+* Identificadores descentralizados (DIDs)
+* Credenciales verificables (VCs). 
+
+La Identidad Auto Soberana le permite a los individuos almacenar y administrar de manera segura su información personal, y compartir selectivamente partes de esta cuando sea necesario, sin la necesidad de revelar todos sus detalles.
+
+Algunos de los principios clave de la Identidad Auto Soberana incluyen:
 
 
-# Introducción 
+<table>
+  <tr>
+   <td><strong>Principio</strong>
+   </td>
+   <td><strong>Descripción</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Decentralización
+   </td>
+   <td>Elimina el requisito de autoridades centralizadas.
+   </td>
+  </tr>
+  <tr>
+   <td>Control
+   </td>
+   <td>Otorga a los individuos el poder de controlar directamente sus identificadores digitales sin la necesidad de depender de autoridades externas.
+   </td>
+  </tr>
+  <tr>
+   <td>Privacidad
+   </td>
+   <td>Permitir que laslas personas controlen la privacidad de su información, incluida la divulgación mínima, selectiva y progresiva de atributos u otros datos.
+   </td>
+  </tr>
+  <tr>
+   <td>Basada en pruebas
+   </td>
+   <td>Las interacciones entre entidades requieren el intercambio de pruebas criptográficas.
+   </td>
+  </tr>
+  <tr>
+   <td>Detectabilidad
+   </td>
+   <td>Las entidades pueden descubrirse entre sí para obtener más información o interactuar entre ellas.
+   </td>
+  </tr>
+  <tr>
+   <td>Interoperabilidad
+   </td>
+   <td>Los distintos sistemas de identidad utilizan estándares comunes para que puedan operar en conjunto y compartir información de manera simple.
+   </td>
+  </tr>
+  <tr>
+   <td>Portabilidad
+   </td>
+   <td>La identidad descentralizada es independiente del sistema y de la red. Esto permite que las entidades utilicen sus identificadores digitales con cualquier sistema que se adhiera a los estándares.
+   </td>
+  </tr>
+  <tr>
+   <td>Simplicidad
+   </td>
+   <td>Tecnología fácil de entender, implementar y desplegar.
+   </td>
+  </tr>
+  <tr>
+   <td>Extensibilidad
+   </td>
+   <td>Se busca permitir la expansión de los sistemas existentes mientras que no impide en gran medida la interoperabilidad, la portabilidad o la simplicidad.
+   </td>
+  </tr>
+</table>
 
-Dentro de cada apartado se encontraron los pasos para poder llegar entender el mundo SSI con ejemplos , explicaciones teóricas, gráficos y todo lo que se necesite para poder adentrarse en este mundo de la identidad auto soberana.
 
-La **Identidad AutoSoberana** (Self-Sovereign Identity en inglés) es un nuevo paradigma para la generación de confianza en internet que trasciende las interacciones digitales y puede implementarse en el mundo físico.
-Un ejemplo de modelo de SSI es QuarkId ( [https://quarkid.org/](https://quarkid.org/) ) que está trayendo el mundo de SSI a la realidad en Latinoamérica.
- 
-Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Credenciales Verificables (Verified Credencials o VCs) son los pilares del modelo Self-sovereign identity (SSI). A través de una serie de pasos vamos a recorrer materiales y workshops que una empresa puede utilizar para integrarse a un modelo de SSI de forma simple sin tener que preocuparse de la problemática tecnológica de fondo.
+A continuación demostraremos cómo se ve este sistema en la práctica usando la plataforma de QuarkID, un protocolo SSI descentralizado, público, no permisionado, abierto, extensible, multi chain e interoperable desarrollado por Extrimian que está trayendo el mundo SSI a Latinoamérica.
 
-## [Stage 1](stage1/README.md) 
+[Demo QuarkID](https://drive.google.com/file/d/177-kzH8X_eYHwJdRik0kVRtbkE6vDph6/view?usp=share_link)
+
+## Componentes
+- [Identificadores Descentralizados (DIDs)](/docs/did.md)
+- [Credenciales Verificables (VCs)](/docs/vc.md)
+- [Interacciones](/docs/interactions.md)
+
+## Workshops
+### [Stage 1](stage1/README.md) 
 
 **Temario:**
 
@@ -26,10 +100,10 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
  - [Creación de un DID](stage1/create-did.md)
  - [Paquete Extrimian NPM](stage1/extrimian-packages.md)
  - [Workshop](stage1/workshop/did)
- - Ver [video](https://www.youtube.com/watch?v=WFlqVpqUtVo)  
+ - Ver [video](https://www.youtube.com/watch?v=WFlqVpqUtVo)
  
 
-## [Stage 2](stage2/README.md) 
+### [Stage 2](stage2/README.md) 
 
 **Temario:**
 - Descargar node-typescript-template
@@ -42,7 +116,7 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 - Ver [video](https://www.youtube.com/watch?v=MXvlFa-IuK4) 
 
 
-## [Stage 3](stage3/README.md) 
+### [Stage 3](stage3/README.md) 
 
 **Temario:**
 
@@ -56,7 +130,7 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 - [Workshop](stage3/vc-example) 
 - Ver [Video](https://www.youtube.com/watch?v=RkE074tVj_k)
 
-## [Stage 4](stage4/README.md) 
+### [Stage 4](stage4/README.md) 
 
 **Temario:**
 
@@ -70,7 +144,7 @@ Los **Identificadores Descentralizados** (Decentralised IDs o DIDs) y las Creden
 - [Workshop](stage4/examples) 
 - Ver [Video](https://www.youtube.com/watch?v=PbY2zhTuO9g) 
 
-## [Stage 5](stage5/README.md)
+### [Stage 5](stage5/README.md)
 
 **Temario:**
 

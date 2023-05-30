@@ -1,4 +1,4 @@
-# Script
+
 ## 1. [¿Que es un DID?](what-is-did.md)
 Conceptos básicos sobre SSI, que es un DID, DID Document, DID Resolver, DID Registry.
 
