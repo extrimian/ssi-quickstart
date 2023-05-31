@@ -127,8 +127,6 @@ return await registry.publishDID({
 ```
 
 ## 5. Resolver DID Publicado
-```
-```
 
 ```
 didDocument = await resolver.resolveDID(publicDID.canonicalId);

@@ -1,23 +1,23 @@
 # Credenciales Verificables
 
 ## Que es una Credencial Verificable?
+
 En el mundo físico, una credencial puede consistir en:
 
-+ Información relacionada con la identificación del sujeto de la credencial (por ejemplo, una foto, nombre o número de identificación)
-Información relacionada con la autoridad emisora ​​(por ejemplo, un gobierno de la ciudad, una agencia nacional o un organismo de certificación)
+- Información relacionada con la identificación del sujeto de la credencial (por ejemplo, una foto, nombre o número de identificación)
+  Información relacionada con la autoridad emisora ​​(por ejemplo, un gobierno de la ciudad, una agencia nacional o un organismo de certificación)
 
-+ Información relacionada con el tipo de credencial que se trata (por ejemplo, un pasaporte holandés, una licencia de conducir estadounidense o una tarjeta de seguro médico)
+- Información relacionada con el tipo de credencial que se trata (por ejemplo, un pasaporte holandés, una licencia de conducir estadounidense o una tarjeta de seguro médico)
 
-+ Información relacionada con atributos o propiedades específicas que afirma la autoridad emisora ​​sobre el tema (por ejemplo, nacionalidad, las clases de vehículos con derecho a conducir o fecha de nacimiento)
+- Información relacionada con atributos o propiedades específicas que afirma la autoridad emisora ​​sobre el tema (por ejemplo, nacionalidad, las clases de vehículos con derecho a conducir o fecha de nacimiento)
 
-+ Evidencia relacionada con cómo se obtuvo la credencial
+- Evidencia relacionada con cómo se obtuvo la credencial
 
-+ Información relacionada con las restricciones de la credencial (por ejemplo, fecha de vencimiento o términos de uso).
+- Información relacionada con las restricciones de la credencial (por ejemplo, fecha de vencimiento o términos de uso).
 
 Una credencial verificable **puede representar toda la misma información que representa una credencial física**. La adición de tecnologías, como las firmas digitales, hace que las credenciales verificables sean más evidentes y más confiables que sus contrapartes físicas.
 
 Los titulares de credenciales verificables pueden generar presentaciones verificables y luego compartir estas presentaciones verificables con los verificadores para demostrar que poseen credenciales verificables con ciertas características.
-
 
 **La palabra "verificable"** en los términos credencial verificable y presentación verificable se refiere a la característica de una credencial o presentación de **poder ser verificada por un verificador**. La verificabilidad de una credencial **no implica que se pueda evaluar la veracidad de las afirmaciones codificadas en ella**; sin embargo, el emisor puede incluir valores en la propiedad de evidencia para ayudar al verificador a aplicar su lógica de negocios para determinar si los reclamos tienen suficiente veracidad para sus necesidades.
 
@@ -25,7 +25,7 @@ Los titulares de credenciales verificables pueden generar presentaciones verific
 
 ```
 {
-  
+
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
     "https://www.w3.org/2018/credentials/examples/v1"
@@ -61,6 +61,7 @@ Los titulares de credenciales verificables pueden generar presentaciones verific
 ```
 
 ## Presentación de una Credencial Verificable
+
 El hecho de poseer una credencial no te hace subject de la misma.
 
 Las presentaciones son datos derivados de una o más credenciales verificables, emitidas por uno o más emisores, que se comparten con un verificador específico. Una presentación verificable es una presentación a prueba de manipulaciones codificada de tal manera que se puede confiar en la autoría de los datos después de un proceso de verificación criptográfica. Ciertos tipos de presentaciones verificables **pueden contener datos que se sintetizan a partir de las credenciales verificables originales**, pero que no las contienen (por ejemplo, **pruebas de conocimiento cero**).
@@ -68,6 +69,7 @@ Las presentaciones son datos derivados de una o más credenciales verificables, 
 ![](./imgs/v-presentation.png)
 
 ## Flujo de Uso
+
 En el siguiente gráfico se observa un caso de uso desde el momento en que se obtiene la credencial hasta que se presenta utilizando selective disclosure.
 
 ![](./imgs/vc-flow.png)
@@ -79,8 +81,10 @@ En el siguiente gráfico se observa un caso de uso desde el momento en que se ob
 > did:modena:matic:EiDxVyreUxU_nBYhtifpAXC7PcgMJ3DLkl_1Vdxy0Izg0w
 
 ### DIDDocument
+
 El DID posee dos verification methods bbsbls2020 con el cual puede firmar sus credenciales.
 En la demo se van a realizar firmas y verificaciones utilizando ambas.
+
 ```
 {
     "@context": [
@@ -143,7 +147,6 @@ En la demo se van a realizar firmas y verificaciones utilizando ambas.
 }
 ```
 
-
 Credencial de ejemplo: Vaccine
 
 [https://w3c-ccg.github.io/vaccination-vocab/](https://w3c-ccg.github.io/vaccination-vocab/)
@@ -189,6 +192,7 @@ Credencial de ejemplo: Vaccine
 ```
 
 ### Crear credencial utilizando VerifiableCredentialService
+
 ```
 const vcService = new VerifiableCredentialService();
 
@@ -228,21 +232,24 @@ const credential = await vcService.createCredential({
 ```
 
 ## Firmar Credencial
+
 ```
 const vc = await kms.signVC(Suite.Bbsbls2020,
 bbsbls2020[0],
 credential,
 issuerDid,
-issuerDidMethod, 
+issuerDidMethod,
 new AssertionMethodPurpuse());
 ```
 
 ## Verificar VC
+
 ```
 const result = await service.verify(vc, new AssertionMethodPurpuse());
 ```
 
 ## Firmar utilizando un purpose diferente a AssertionMethod
+
 ```
 const vc = await kms.signVC(Suite.Bbsbls2020,
 bbsbls2020[0],
@@ -252,12 +259,14 @@ credential,
 ```
 
 ## Firmar utilizando el purpose AssertionMethod pero verificando otro purpose
+
 ```
 const result = await service.verify(vc,
 new KeyAgreementPurpose()); // KeyAgreementPurpose is not ok to verify
 ```
 
 ## Firmar utilizando el segundo par de claves bbs pero indicando el VerificationMethod del primer par en la firma
+
 ```
 const vc = await kms.signVC(Suite.Bbsbls2020,
         bbsbls2020[0],
@@ -267,6 +276,7 @@ const vc = await kms.signVC(Suite.Bbsbls2020,
 ```
 
 ## Firmar utilizando el segundo par de claves bbs indicando bien el VerificationMethod
+
 ```
 const vc = await kms.signVC(Suite.Bbsbls2020,
         bbsbls2020[0],
